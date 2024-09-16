@@ -1,0 +1,60 @@
+
+* {
+    transition: backdrop-filter .5s, opacity .5s;
+}
+body {
+    background-image: url('/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: system-ui;
+    margin: 0;
+    padding: 1em;
+    backdrop-filter: blur(10px) brightness(0.6);
+}
+body:not(:hover){
+    backdrop-filter: none;
+}
+body:not(:hover) > *{
+    opacity: 0;
+}
+.vscode {
+    display: flex; 
+    align-items: center; 
+    padding: .5em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #dbdbdb14;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    margin: .5em;
+    overflow: hidden;
+    transition: height .2s, margin .2s, padding .2s, display .2s;
+}
+.vscode:hover{
+    background-color: #dbdbdb47;
+}
+.vscode svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+}
+.content{
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+}
+.search{    
+    display: flex;
+    padding: .5em;
+    background-color: #dbdbdb14;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    margin: 1em 1em;
+}
+.search>input{
+    display: flex;
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    color: white;
+}
