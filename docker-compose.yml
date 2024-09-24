@@ -1,0 +1,11 @@
+services:
+  server:
+    build:
+      context: .
+    environment:
+      - URL_PREFIX=vscode-remote://ssh-remote+user@host.domain
+    ports:
+      - 80:80
+    volumes:
+      - /home/user/directory/with/repositories/:/search/home/user/directory/with/repositories/:ro
+    restart: unless-stopped
