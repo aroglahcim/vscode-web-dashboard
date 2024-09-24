@@ -17,12 +17,15 @@ body {
     padding: .5em;
     text-decoration: none;
     color: #fff;
-    background-color: #dbdbdb47;
+    background-color: #dbdbdb14;
     backdrop-filter: blur(4px);
     border-radius: 10px;
     margin: .5em;
     overflow: hidden;
     transition: height .2s, margin .2s, padding .2s, display .2s;
+}
+.vscode:hover{
+    background-color: #dbdbdb47;
 }
 .vscode svg {
     width: 1.5em;
