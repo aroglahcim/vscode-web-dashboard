@@ -14,6 +14,14 @@ URL_PREFIX=vscode://
 
 depending on your configuration of `xdg-open` and files location.
 
+### Hidden directories
+
+By default hidden directories are not listed nor searched for repositories. To include hidden directories in search set 
+
+```bash
+SEARCH_HIDDEN_DIRECTORIES=true
+```
+
 ## Compose example
 
 ```yaml

@@ -5,14 +5,20 @@ server = TCPServer.new 80
 
 VERBOSE = false
 
-STDERR_REDIRECT = VERBOSE ? "" : "2>/dev/null"
 URL_PREFIX=ENV["URL_PREFIX"]
+SEARCH_HIDDEN_DIRECTORIES=ENV["SEARCH_HIDDEN_DIRECTORIES"] == "true"
+
+STDERR_REDIRECT = VERBOSE ? "" : "2>/dev/null"
 
 VSCODE_ICON_SVG = File.read("./vscode.svg")
 ROOT_PATH = "/search"
 
 def print_urls(session)
-    git_repository_paths = %x|find #{ROOT_PATH} -type d -name .git -execdir pwd \\;|.split("\n")
+    if SEARCH_HIDDEN_DIRECTORIES
+        git_repository_paths = %x|find #{ROOT_PATH} -type d -name .git -execdir pwd #{STDERR_REDIRECT} \\;|.split("\n")
+    else
+        git_repository_paths = %x|find #{ROOT_PATH} -type d -regex '#{ROOT_PATH}\\(/[^\\.][^/]*\\)*/\\.git' -execdir pwd #{STDERR_REDIRECT} \\;|.split("\n")
+    end    
 
     for path in git_repository_paths
         real_path = path.sub(/#{ROOT_PATH}/,'')

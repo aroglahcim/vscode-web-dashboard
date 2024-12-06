@@ -6,4 +6,6 @@ RUN mkdir /search/
 
 COPY ./app/  ./
 
+EXPOSE 80
+
 ENTRYPOINT [ "ruby", "server.rb" ]
