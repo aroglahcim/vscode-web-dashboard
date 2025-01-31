@@ -23,8 +23,9 @@ body {
     margin: .5em;
     overflow: hidden;
     transition: height .2s, margin .2s, padding .2s, display .2s;
+    outline: none;
 }
-.vscode:hover{
+.vscode:hover, .vscode:focus {
     background-color: #dbdbdb47;
 }
 .vscode svg {
@@ -42,7 +43,8 @@ body {
     background-color: #dbdbdb14;
     backdrop-filter: blur(4px);
     border-radius: 10px;
-    margin: 1em 1em;
+    margin: .5em;
+    height: 1.5em;
 }
 .search>input{
     display: flex;
